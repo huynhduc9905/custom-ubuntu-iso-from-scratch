@@ -128,7 +128,7 @@ function install_pkg() {
     esac
     
     # install kernel
-    apt-get install -y --no-install-recommends $TARGET_KERNEL_PACKAGE
+    apt-get install -y --no-install-recommends linux-headers-lowlatency-hwe-20.04
 
     # graphic installer - ubiquity
     apt-get install -y \
