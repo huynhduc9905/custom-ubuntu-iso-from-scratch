@@ -144,7 +144,7 @@ function build_iso() {
     sudo cp chroot/boot/initrd.img-**-**-generic image/casper/initrd
 
     # memtest86
-    sudo cp chroot/boot/memtest86+.bin image/install/memtest86+
+    # sudo cp chroot/boot/memtest86+.bin image/install/memtest86+
 
     wget --progress=dot https://www.memtest86.com/downloads/memtest86-usb.zip -O image/install/memtest86-usb.zip
     unzip -p image/install/memtest86-usb.zip memtest86-usb.img > image/install/memtest86
