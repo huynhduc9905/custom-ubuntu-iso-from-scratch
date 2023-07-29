@@ -19,10 +19,8 @@ jobs:
           cd scripts
           sed -i -E 's/TARGET_UBUNTU_VERSION=(.*)/TARGET_UBUNTU_VERSION="focal"/g' default_config.sh
           ./build.sh -
-      - name: Archive artifacts
-        uses: actions/upload-artifact@v3
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.0.0
         with:
-          name: ubuntu-from-scratch
-          path: |
-            scripts/ubuntu-from-scratch.iso
-            scripts/image/md5sum.txt
+          name: my-artifact
+          path: /home/runner/work/custom-ubuntu-iso-from-scratch/custom-ubuntu-iso-from-scratch/scripts/Amphe.iso
