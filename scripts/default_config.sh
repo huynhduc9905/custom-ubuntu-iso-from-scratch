@@ -40,16 +40,18 @@ export TARGET_PACKAGE_REMOVE="
 # present on the installed system.
 function customize_image() {
     # install graphics and desktop
-    # apt-get install -y \
-    # plymouth-theme-ubuntu-logo \
-    # ubuntu-gnome-desktop \
-    # ubuntu-gnome-wallpapers
+    apt-get install -y \
+    plymouth-theme-ubuntu-logo \
+    ubuntu-gnome-desktop \
+    ubuntu-gnome-wallpapers
 
     # useful tools
     apt-get install -y \
     curl \
     vim \
-    nano
+    nano \
+    terminator \
+    apt-transport-https 
 
     # purge
     apt-get purge -y \
