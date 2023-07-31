@@ -161,6 +161,11 @@ insmod all_video
 set default="0"
 set timeout=30
 
+menuentry "custon Ubuntu LiveCD" {
+    linux /casper/vmlinuz boot=casper quiet splash ---
+    initrd /casper/initrd
+}
+
 menuentry "${GRUB_LIVEBOOT_LABEL}" {
    linux /casper/vmlinuz boot=casper nopersistent toram ---
    initrd /casper/initrd

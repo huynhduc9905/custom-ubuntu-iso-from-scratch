@@ -139,7 +139,9 @@ function install_pkg() {
     # ubiquity-slideshow-ubuntu \
     # ubiquity-ubuntu-artwork
 
+    echo "install debian-installer 1"
     apt-get install -y debian-installer
+    echo "install debian-installer 2"
 
     apt-get install -y 
 
