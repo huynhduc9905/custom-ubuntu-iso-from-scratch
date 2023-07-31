@@ -150,15 +150,9 @@ function build_iso() {
     unzip -p image/install/memtest86-usb.zip memtest86-usb.img > image/install/memtest86
     rm -f image/install/memtest86-usb.zip
 
-    # Create the Ubuntu LiveCD image
+    # grub
     touch image/ubuntu
-
-    # Create the GRUB configuration file
     cat <<EOF > image/isolinux/grub.cfg
-
-    # Modify the GRUB configuration to use non-interactive mode
-
-    sed -i 's|file=/cdrom/preseed/ubuntu.seed|file=/cdrom/preseed/ubuntu.seed debconf/frontend=noninteractive|' image/isolinux/grub.cfg
 
 search --set=root --file /ubuntu
 
@@ -194,6 +188,8 @@ menuentry "Test memory Memtest86 (UEFI, long load time)" {
    chainloader (loop,gpt1)/efi/boot/BOOTX64.efi
 }
 EOF
+
+    sed -i 's|file=/cdrom/preseed/ubuntu.seed|file=/cdrom/preseed/ubuntu.seed debconf/frontend=noninteractive|' image/isolinux/grub.cfg
 
     # generate manifest
     sudo chroot chroot dpkg-query -W --showformat='${Package} ${Version}\n' | sudo tee image/casper/filesystem.manifest
