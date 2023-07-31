@@ -132,18 +132,14 @@ function install_pkg() {
     apt-get install -y --no-install-recommends $TARGET_KERNEL_PACKAGE
 
     # graphic installer - ubiquity
-    # apt-get install -y \
-    # ubiquity \
-    # ubiquity-casper \
-    # ubiquity-frontend-gtk \
-    # ubiquity-slideshow-ubuntu \
-    # ubiquity-ubuntu-artwork
+    apt-get install -y \
+    ubiquity \
+    ubiquity-casper \
+    ubiquity-frontend-gtk 
 
-    echo "install debian-installer 1"
-    apt-get install -y debian-installer
-    echo "install debian-installer 2"
-
-    apt-get install -y 
+    # echo "install debian-installer 1"
+    # apt-get install -y debian-installer
+    # echo "install debian-installer 2"
 
     # Call into config function
     customize_image

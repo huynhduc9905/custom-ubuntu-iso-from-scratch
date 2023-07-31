@@ -161,11 +161,6 @@ insmod all_video
 set default="0"
 set timeout=30
 
-menuentry "custon Ubuntu LiveCD" {
-    linux /casper/vmlinuz boot=casper quiet splash ---
-    initrd /casper/initrd
-}
-
 menuentry "${GRUB_LIVEBOOT_LABEL}" {
    linux /casper/vmlinuz boot=casper nopersistent toram ---
    initrd /casper/initrd
@@ -193,9 +188,6 @@ menuentry "Test memory Memtest86 (UEFI, long load time)" {
    chainloader (loop,gpt1)/efi/boot/BOOTX64.efi
 }
 EOF
-
-    sed -i 's|file=/cdrom/preseed/ubuntu.seed|file=/cdrom/preseed/ubuntu.seed debconf/frontend=noninteractive|' image/isolinux/grub.cfg
-
     # generate manifest
     sudo chroot chroot dpkg-query -W --showformat='${Package} ${Version}\n' | sudo tee image/casper/filesystem.manifest
     sudo cp -v image/casper/filesystem.manifest image/casper/filesystem.manifest-desktop
