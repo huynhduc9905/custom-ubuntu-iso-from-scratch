@@ -8,11 +8,7 @@ set -u                  # treat unset variable as error
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 
 # CMD=(setup_host install_pkg finish_up)
-CMD=(setup_host install_pkg debian_installer finish_up)
-
-function debian_installer() {
-    sed -i 's|file=/cdrom/preseed/ubuntu.seed|file=/cdrom/preseed/ubuntu.seed debconf/frontend=noninteractive|' image/isolinux/grub.cfg
-}
+CMD=(setup_host install_pkg finish_up)
 
 function help() {
     # if $1 is set, use $1 as headline message in help()

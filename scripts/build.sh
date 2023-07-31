@@ -150,9 +150,15 @@ function build_iso() {
     unzip -p image/install/memtest86-usb.zip memtest86-usb.img > image/install/memtest86
     rm -f image/install/memtest86-usb.zip
 
-    # grub
+    # Create the Ubuntu LiveCD image
     touch image/ubuntu
+
+    # Create the GRUB configuration file
     cat <<EOF > image/isolinux/grub.cfg
+
+    # Modify the GRUB configuration to use non-interactive mode
+
+    sed -i 's|file=/cdrom/preseed/ubuntu.seed|file=/cdrom/preseed/ubuntu.seed debconf/frontend=noninteractive|' image/isolinux/grub.cfg
 
 search --set=root --file /ubuntu
 
