@@ -42,8 +42,8 @@ export TARGET_PACKAGE_REMOVE="
 # present on the installed system.
 function customize_image() {
     # install graphics and desktop
-    apt-get install -y \
-    linux-image-generic-hwe-20.04
+    # apt-get install -y \
+    # linux-image-generic-hwe-20.04
 
     # useful tools
     apt-get install -y \
