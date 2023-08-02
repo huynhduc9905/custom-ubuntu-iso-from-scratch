@@ -43,8 +43,7 @@ function customize_image() {
     apt-get install -y \
     plymouth-theme-ubuntu-logo \
     ubuntu-gnome-desktop \
-    ubuntu-gnome-wallpapers \
-    linux-image-generic-hwe-20.04
+    ubuntu-gnome-wallpapers
 
     # useful tools
     apt-get install -y \
